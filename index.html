@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>SharedCoreService API</title>
+  <title>SampleService API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -857,55 +857,11 @@ ul.nav-tabs {
   "additionalProperties" : true,
   "description" : "Contains an arbitrary serialized message along with a @type that describes the type of the serialized message."
 };
-    defs["MeResponse"] = {
+    defs["SampleResponse"] = {
   "type" : "object",
   "properties" : {
-    "compnayId" : {
+    "sampleData" : {
       "type" : "string"
-    },
-    "peopleId" : {
-      "type" : "string"
-    },
-    "email" : {
-      "type" : "string"
-    },
-    "familyName" : {
-      "type" : "string"
-    },
-    "givenName" : {
-      "type" : "string"
-    },
-    "peopleStatus" : {
-      "type" : "string"
-    },
-    "code" : {
-      "type" : "string"
-    },
-    "thumbnailUrl" : {
-      "type" : "string"
-    },
-    "module" : {
-      "$ref" : "#/components/schemas/Module"
-    }
-  }
-};
-    defs["Module"] = {
-  "type" : "object",
-  "properties" : {
-    "coreRestricted" : {
-      "type" : "boolean"
-    },
-    "goal" : {
-      "type" : "boolean"
-    },
-    "oneonone" : {
-      "type" : "boolean"
-    },
-    "survey" : {
-      "type" : "boolean"
-    },
-    "pulse" : {
-      "type" : "boolean"
     }
   }
 };
@@ -931,16 +887,6 @@ ul.nav-tabs {
   },
   "description" : "The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors)."
 };
-    defs["ThumbnailResponse"] = {
-  "type" : "object",
-  "properties" : {
-    "thumbnail" : {
-      "type" : "string",
-      "description" : "JSON 変換時にライブラリ(protobuf-java-util の JsonFormat)が base64 な文字列にしてくれる...はず",
-      "format" : "bytes"
-    }
-  }
-};
 
     var errs = {};
   </script>
@@ -959,12 +905,9 @@ ul.nav-tabs {
             -->
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
-                  <li class="nav-header" data-group="SharedCoreService"><a href="#api-SharedCoreService">API Methods - SharedCoreService</a></li>
-                    <li data-group="SharedCoreService" data-name="sharedCoreServiceGetMe" class="">
-                      <a href="#api-SharedCoreService-sharedCoreServiceGetMe">sharedCoreServiceGetMe</a>
-                    </li>
-                    <li data-group="SharedCoreService" data-name="sharedCoreServiceGetThumbnail" class="">
-                      <a href="#api-SharedCoreService-sharedCoreServiceGetThumbnail">sharedCoreServiceGetThumbnail</a>
+                  <li class="nav-header" data-group="SampleService"><a href="#api-SampleService">API Methods - SampleService</a></li>
+                    <li data-group="SampleService" data-name="sampleServiceGetSample" class="">
+                      <a href="#api-SampleService-sampleServiceGetSample">sampleServiceGetSample</a>
                     </li>
           </ul>
         </nav>
@@ -972,7 +915,7 @@ ul.nav-tabs {
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>SharedCoreService API</h1>
+            <h1>SampleService API</h1>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -987,12 +930,12 @@ ul.nav-tabs {
           </div>
         </div>
         <div id="sections">
-                <section id="api-SharedCoreService">
-                  <h1>SharedCoreService</h1>
-                    <div id="api-SharedCoreService-sharedCoreServiceGetMe">
-                      <article id="api-SharedCoreService-sharedCoreServiceGetMe-0" data-group="User" data-name="sharedCoreServiceGetMe" data-version="0">
+                <section id="api-SampleService">
+                  <h1>SampleService</h1>
+                    <div id="api-SampleService-sampleServiceGetSample">
+                      <article id="api-SampleService-sampleServiceGetSample-0" data-group="User" data-name="sampleServiceGetSample" data-version="0">
                         <div class="pull-left">
-                          <h1>sharedCoreServiceGetMe</h1>
+                          <h1>sampleServiceGetSample</h1>
                           <p></p>
                         </div>
                         <div class="pull-right"></div>
@@ -1001,52 +944,53 @@ ul.nav-tabs {
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/core/v1/me</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/sample</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-java">Java</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-python">Python</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetMe-0-rust">Rust</a></li>
+                          <li class="active"><a href="#examples-SampleService-sampleServiceGetSample-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-java">Java</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-python">Python</a></li>
+                          <li class=""><a href="#examples-SampleService-sampleServiceGetSample-0-rust">Rust</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-curl">
+                          <div class="tab-pane active" id="examples-SampleService-sampleServiceGetSample-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://shared.pf.hrmos.co/core/v1/me"
+ "http://localhost/api/v1/sample?sampleId=789"
 </code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-java">
+                          <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-java">
                             <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.SharedCoreServiceApi;
+import org.openapitools.client.api.SampleServiceApi;
 
 import java.io.File;
 import java.util.*;
 
-public class SharedCoreServiceApiExample {
+public class SampleServiceApiExample {
     public static void main(String[] args) {
 
         // Create an instance of the API class
-        SharedCoreServiceApi apiInstance = new SharedCoreServiceApi();
+        SampleServiceApi apiInstance = new SampleServiceApi();
+        Long sampleId = 789; // Long | 
 
         try {
-            MeResponse result = apiInstance.sharedCoreServiceGetMe();
+            SampleResponse result = apiInstance.sampleServiceGetSample(sampleId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SharedCoreServiceApi#sharedCoreServiceGetMe");
+            System.err.println("Exception when calling SampleServiceApi#sampleServiceGetSample");
             e.printStackTrace();
         }
     }
@@ -1054,35 +998,37 @@ public class SharedCoreServiceApiExample {
 </code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-android">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.SharedCoreServiceApi;
+                          <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.SampleServiceApi;
 
-public class SharedCoreServiceApiExample {
+public class SampleServiceApiExample {
     public static void main(String[] args) {
-        SharedCoreServiceApi apiInstance = new SharedCoreServiceApi();
+        SampleServiceApi apiInstance = new SampleServiceApi();
+        Long sampleId = 789; // Long | 
 
         try {
-            MeResponse result = apiInstance.sharedCoreServiceGetMe();
+            SampleResponse result = apiInstance.sampleServiceGetSample(sampleId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SharedCoreServiceApi#sharedCoreServiceGetMe");
+            System.err.println("Exception when calling SampleServiceApi#sampleServiceGetSample");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-groovy">
+  <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-objc">
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 
 // Create an instance of the API class
-SharedCoreServiceApi *apiInstance = [[SharedCoreServiceApi alloc] init];
+SampleServiceApi *apiInstance = [[SampleServiceApi alloc] init];
+Long *sampleId = 789; //  (optional) (default to null)
 
-[apiInstance sharedCoreServiceGetMeWithCompletionHandler: 
-              ^(MeResponse output, NSError* error) {
+[apiInstance sampleServiceGetSampleWith:sampleId
+              completionHandler: ^(SampleResponse output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
     }
@@ -1093,11 +1039,15 @@ SharedCoreServiceApi *apiInstance = [[SharedCoreServiceApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var SharedCoreServiceApi = require('shared_core_service_api');
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var SampleServiceApi = require('sample_service_api');
 
 // Create an instance of the API class
-var api = new SharedCoreServiceApi.SharedCoreServiceApi()
+var api = new SampleServiceApi.SampleServiceApi()
+var opts = {
+  'sampleId': 789 // {Long} 
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -1105,14 +1055,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.sharedCoreServiceGetMe(callback);
+api.sampleServiceGetSample(opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-angular">
+                            <!--<div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-csharp">
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -1121,19 +1071,20 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class sharedCoreServiceGetMeExample
+    public class sampleServiceGetSampleExample
     {
         public void main()
         {
 
             // Create an instance of the API class
-            var apiInstance = new SharedCoreServiceApi();
+            var apiInstance = new SampleServiceApi();
+            var sampleId = 789;  // Long |  (optional)  (default to null)
 
             try {
-                MeResponse result = apiInstance.sharedCoreServiceGetMe();
+                SampleResponse result = apiInstance.sampleServiceGetSample(sampleId);
                 Debug.WriteLine(result);
             } catch (Exception e) {
-                Debug.Print("Exception when calling SharedCoreServiceApi.sharedCoreServiceGetMe: " + e.Message );
+                Debug.Print("Exception when calling SampleServiceApi.sampleServiceGetSample: " + e.Message );
             }
         }
     }
@@ -1141,40 +1092,42 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-php">
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Create an instance of the API class
-$api_instance = new OpenAPITools\Client\Api\SharedCoreServiceApi();
+$api_instance = new OpenAPITools\Client\Api\SampleServiceApi();
+$sampleId = 789; // Long | 
 
 try {
-    $result = $api_instance->sharedCoreServiceGetMe();
+    $result = $api_instance->sampleServiceGetSample($sampleId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SharedCoreServiceApi->sharedCoreServiceGetMe: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SampleServiceApi->sampleServiceGetSample: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-perl">
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::OPenAPIClient::Configuration;
-use WWW::OPenAPIClient::SharedCoreServiceApi;
+use WWW::OPenAPIClient::SampleServiceApi;
 
 # Create an instance of the API class
-my $api_instance = WWW::OPenAPIClient::SharedCoreServiceApi->new();
+my $api_instance = WWW::OPenAPIClient::SampleServiceApi->new();
+my $sampleId = 789; # Long | 
 
 eval {
-    my $result = $api_instance->sharedCoreServiceGetMe();
+    my $result = $api_instance->sampleServiceGetSample(sampleId => $sampleId);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling SharedCoreServiceApi->sharedCoreServiceGetMe: $@\n";
+    warn "Exception when calling SampleServiceApi->sampleServiceGetSample: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-python">
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import openapi_client
@@ -1182,22 +1135,24 @@ from openapi_client.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SharedCoreServiceApi()
+api_instance = openapi_client.SampleServiceApi()
+sampleId = 789 # Long |  (optional) (default to null)
 
 try:
-    api_response = api_instance.shared_core_service_get_me()
+    api_response = api_instance.sample_service_get_sample(sampleId=sampleId)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SharedCoreServiceApi->sharedCoreServiceGetMe: %s\n" % e)</code></pre>
+    print("Exception when calling SampleServiceApi->sampleServiceGetSample: %s\n" % e)</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetMe-0-rust">
-                              <pre class="prettyprint"><code class="language-rust">extern crate SharedCoreServiceApi;
+                            <div class="tab-pane" id="examples-SampleService-sampleServiceGetSample-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate SampleServiceApi;
 
 pub fn main() {
+    let sampleId = 789; // Long
 
-    let mut context = SharedCoreServiceApi::Context::default();
-    let result = client.sharedCoreServiceGetMe(&context).wait();
+    let mut context = SampleServiceApi::Context::default();
+    let result = client.sampleServiceGetSample(sampleId, &context).wait();
 
     println!("{:?}", result);
 }
@@ -1216,387 +1171,17 @@ pub fn main() {
 
 
 
-
-                          <h2>Responses</h2>
-                            <h3 id="examples-SharedCoreService-sharedCoreServiceGetMe-title-200"></h3>
-                            <p id="examples-SharedCoreService-sharedCoreServiceGetMe-description-200" class="marked"></p>
-                            <script>
-                              var responseSharedCoreService200_description = `OK`;
-                              var responseSharedCoreService200_description_break = responseSharedCoreService200_description.indexOf('\n');
-                              if (responseSharedCoreService200_description_break == -1) {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetMe-title-200").text("Status: 200 - " + responseSharedCoreService200_description);
-                              } else {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetMe-title-200").text("Status: 200 - " + responseSharedCoreService200_description.substring(0, responseSharedCoreService200_description_break));
-                                $("#examples-SharedCoreService-sharedCoreServiceGetMe-description-200").html(responseSharedCoreService200_description.substring(responseSharedCoreService200_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-SharedCoreService-sharedCoreServiceGetMe-200" class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-SharedCoreService-sharedCoreServiceGetMe-200-schema">Schema</a>
-                                </li>
-
-
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-SharedCoreService-sharedCoreServiceGetMe-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-SharedCoreService-sharedCoreServiceGetMe-200-schema">
-                                  <div id="responses-SharedCoreService-sharedCoreServiceGetMe-schema-200" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "OK",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/MeResponse"
-      }
-    }
-  }
-};
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-SharedCoreService-sharedCoreServiceGetMe-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-SharedCoreService-sharedCoreServiceGetMe-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-SharedCoreService-sharedCoreServiceGetMe-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-                            <h3 id="examples-SharedCoreService-sharedCoreServiceGetMe-title-default"></h3>
-                            <p id="examples-SharedCoreService-sharedCoreServiceGetMe-description-default" class="marked"></p>
-                            <script>
-                              var responseSharedCoreServicedefault_description = `Default error response`;
-                              var responseSharedCoreServicedefault_description_break = responseSharedCoreServicedefault_description.indexOf('\n');
-                              if (responseSharedCoreServicedefault_description_break == -1) {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetMe-title-default").text("Status: default - " + responseSharedCoreServicedefault_description);
-                              } else {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetMe-title-default").text("Status: default - " + responseSharedCoreServicedefault_description.substring(0, responseSharedCoreServicedefault_description_break));
-                                $("#examples-SharedCoreService-sharedCoreServiceGetMe-description-default").html(responseSharedCoreServicedefault_description.substring(responseSharedCoreServicedefault_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-SharedCoreService-sharedCoreServiceGetMe-default" class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-SharedCoreService-sharedCoreServiceGetMe-default-schema">Schema</a>
-                                </li>
-
-
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-SharedCoreService-sharedCoreServiceGetMe-default-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-SharedCoreService-sharedCoreServiceGetMe-default-schema">
-                                  <div id="responses-SharedCoreService-sharedCoreServiceGetMe-schema-default" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "Default error response",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Status"
-      }
-    }
-  }
-};
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-SharedCoreService-sharedCoreServiceGetMe-default-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-SharedCoreService-sharedCoreServiceGetMe-schema-default');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-SharedCoreService-sharedCoreServiceGetMe-default-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-SharedCoreService-sharedCoreServiceGetThumbnail">
-                      <article id="api-SharedCoreService-sharedCoreServiceGetThumbnail-0" data-group="User" data-name="sharedCoreServiceGetThumbnail" data-version="0">
-                        <div class="pull-left">
-                          <h1>sharedCoreServiceGetThumbnail</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/core/v1/peoples/{peopleId}/thumbnail</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-java">Java</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-python">Python</a></li>
-                          <li class=""><a href="#examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-rust">Rust</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
- -H "Accept: application/json" \
- "https://shared.pf.hrmos.co/core/v1/peoples/{peopleId}/thumbnail"
-</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-java">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.model.*;
-import org.openapitools.client.api.SharedCoreServiceApi;
-
-import java.io.File;
-import java.util.*;
-
-public class SharedCoreServiceApiExample {
-    public static void main(String[] args) {
-
-        // Create an instance of the API class
-        SharedCoreServiceApi apiInstance = new SharedCoreServiceApi();
-        Long peopleId = 789; // Long | JSON-String に変換されるはず
-
-        try {
-            ThumbnailResponse result = apiInstance.sharedCoreServiceGetThumbnail(peopleId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SharedCoreServiceApi#sharedCoreServiceGetThumbnail");
-            e.printStackTrace();
-        }
-    }
-}
-</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-android">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.SharedCoreServiceApi;
-
-public class SharedCoreServiceApiExample {
-    public static void main(String[] args) {
-        SharedCoreServiceApi apiInstance = new SharedCoreServiceApi();
-        Long peopleId = 789; // Long | JSON-String に変換されるはず
-
-        try {
-            ThumbnailResponse result = apiInstance.sharedCoreServiceGetThumbnail(peopleId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SharedCoreServiceApi#sharedCoreServiceGetThumbnail");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-
-// Create an instance of the API class
-SharedCoreServiceApi *apiInstance = [[SharedCoreServiceApi alloc] init];
-Long *peopleId = 789; // JSON-String に変換されるはず (default to null)
-
-[apiInstance sharedCoreServiceGetThumbnailWith:peopleId
-              completionHandler: ^(ThumbnailResponse output, NSError* error) {
-    if (output) {
-        NSLog(@"%@", output);
-    }
-    if (error) {
-        NSLog(@"Error: %@", error);
-    }
-}];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var SharedCoreServiceApi = require('shared_core_service_api');
-
-// Create an instance of the API class
-var api = new SharedCoreServiceApi.SharedCoreServiceApi()
-var peopleId = 789; // {Long} JSON-String に変換されるはず
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.sharedCoreServiceGetThumbnail(peopleId, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class sharedCoreServiceGetThumbnailExample
-    {
-        public void main()
-        {
-
-            // Create an instance of the API class
-            var apiInstance = new SharedCoreServiceApi();
-            var peopleId = 789;  // Long | JSON-String に変換されるはず (default to null)
-
-            try {
-                ThumbnailResponse result = apiInstance.sharedCoreServiceGetThumbnail(peopleId);
-                Debug.WriteLine(result);
-            } catch (Exception e) {
-                Debug.Print("Exception when calling SharedCoreServiceApi.sharedCoreServiceGetThumbnail: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create an instance of the API class
-$api_instance = new OpenAPITools\Client\Api\SharedCoreServiceApi();
-$peopleId = 789; // Long | JSON-String に変換されるはず
-
-try {
-    $result = $api_instance->sharedCoreServiceGetThumbnail($peopleId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SharedCoreServiceApi->sharedCoreServiceGetThumbnail: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::OPenAPIClient::Configuration;
-use WWW::OPenAPIClient::SharedCoreServiceApi;
-
-# Create an instance of the API class
-my $api_instance = WWW::OPenAPIClient::SharedCoreServiceApi->new();
-my $peopleId = 789; # Long | JSON-String に変換されるはず
-
-eval {
-    my $result = $api_instance->sharedCoreServiceGetThumbnail(peopleId => $peopleId);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling SharedCoreServiceApi->sharedCoreServiceGetThumbnail: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Create an instance of the API class
-api_instance = openapi_client.SharedCoreServiceApi()
-peopleId = 789 # Long | JSON-String に変換されるはず (default to null)
-
-try:
-    api_response = api_instance.shared_core_service_get_thumbnail(peopleId)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SharedCoreServiceApi->sharedCoreServiceGetThumbnail: %s\n" % e)</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-0-rust">
-                              <pre class="prettyprint"><code class="language-rust">extern crate SharedCoreServiceApi;
-
-pub fn main() {
-    let peopleId = 789; // Long
-
-    let mut context = SharedCoreServiceApi::Context::default();
-    let result = client.sharedCoreServiceGetThumbnail(peopleId, &context).wait();
-
-    println!("{:?}", result);
-}
-</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Scopes</h2>
-                          <table>
-                            
-                          </table>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
+                            <div class="methodsubtabletitle">Query parameters</div>
                             <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">peopleId*</td>
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">sampleId</td>
 <td>
 
 
-    <div id="d2e199_sharedCoreServiceGetThumbnail_peopleId">
+    <div id="d2e199_sampleServiceGetSample_sampleId">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -1606,13 +1191,7 @@ pub fn main() {
                         (int64)
                     </span>
 
-                    <div class="inner description marked">
-JSON-String に変換されるはず
-                    </div>
             </div>
-                <div class="inner required">
-                    Required
-                </div>
         </div>
     </div>
 </td>
@@ -1620,28 +1199,24 @@ JSON-String に変換されるはず
 
                             </table>
 
-
-
-
-
                           <h2>Responses</h2>
-                            <h3 id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-title-200"></h3>
-                            <p id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-description-200" class="marked"></p>
+                            <h3 id="examples-SampleService-sampleServiceGetSample-title-200"></h3>
+                            <p id="examples-SampleService-sampleServiceGetSample-description-200" class="marked"></p>
                             <script>
-                              var responseSharedCoreService200_description = `OK`;
-                              var responseSharedCoreService200_description_break = responseSharedCoreService200_description.indexOf('\n');
-                              if (responseSharedCoreService200_description_break == -1) {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetThumbnail-title-200").text("Status: 200 - " + responseSharedCoreService200_description);
+                              var responseSampleService200_description = `OK`;
+                              var responseSampleService200_description_break = responseSampleService200_description.indexOf('\n');
+                              if (responseSampleService200_description_break == -1) {
+                                $("#examples-SampleService-sampleServiceGetSample-title-200").text("Status: 200 - " + responseSampleService200_description);
                               } else {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetThumbnail-title-200").text("Status: 200 - " + responseSharedCoreService200_description.substring(0, responseSharedCoreService200_description_break));
-                                $("#examples-SharedCoreService-sharedCoreServiceGetThumbnail-description-200").html(responseSharedCoreService200_description.substring(responseSharedCoreService200_description_break));
+                                $("#examples-SampleService-sampleServiceGetSample-title-200").text("Status: 200 - " + responseSampleService200_description.substring(0, responseSampleService200_description_break));
+                                $("#examples-SampleService-sampleServiceGetSample-description-200").html(responseSampleService200_description.substring(responseSampleService200_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-SharedCoreService-sharedCoreServiceGetThumbnail-200" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-SampleService-sampleServiceGetSample-200" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-SharedCoreService-sharedCoreServiceGetThumbnail-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-SampleService-sampleServiceGetSample-200-schema">Schema</a>
                                 </li>
 
 
@@ -1650,9 +1225,9 @@ JSON-String に変換されるはず
                             </ul>
 
 
-                            <div class="tab-content" id="responses-SharedCoreService-sharedCoreServiceGetThumbnail-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-SharedCoreService-sharedCoreServiceGetThumbnail-200-schema">
-                                  <div id="responses-SharedCoreService-sharedCoreServiceGetThumbnail-schema-200" class="exampleStyle">
+                            <div class="tab-content" id="responses-SampleService-sampleServiceGetSample-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-SampleService-sampleServiceGetSample-200-schema">
+                                  <div id="responses-SampleService-sampleServiceGetSample-schema-200" class="exampleStyle">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1660,7 +1235,7 @@ JSON-String に変換されるはず
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/ThumbnailResponse"
+        "$ref" : "#/components/schemas/SampleResponse"
       }
     }
   }
@@ -1681,33 +1256,33 @@ JSON-String に変換されるはず
                                         }
 
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-SharedCoreService-sharedCoreServiceGetThumbnail-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-SharedCoreService-sharedCoreServiceGetThumbnail-schema-200');
+                                        $('#responses-SampleService-sampleServiceGetSample-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-SampleService-sampleServiceGetSample-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-SharedCoreService-sharedCoreServiceGetThumbnail-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-SampleService-sampleServiceGetSample-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
-                            <h3 id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-title-default"></h3>
-                            <p id="examples-SharedCoreService-sharedCoreServiceGetThumbnail-description-default" class="marked"></p>
+                            <h3 id="examples-SampleService-sampleServiceGetSample-title-default"></h3>
+                            <p id="examples-SampleService-sampleServiceGetSample-description-default" class="marked"></p>
                             <script>
-                              var responseSharedCoreServicedefault_description = `Default error response`;
-                              var responseSharedCoreServicedefault_description_break = responseSharedCoreServicedefault_description.indexOf('\n');
-                              if (responseSharedCoreServicedefault_description_break == -1) {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetThumbnail-title-default").text("Status: default - " + responseSharedCoreServicedefault_description);
+                              var responseSampleServicedefault_description = `Default error response`;
+                              var responseSampleServicedefault_description_break = responseSampleServicedefault_description.indexOf('\n');
+                              if (responseSampleServicedefault_description_break == -1) {
+                                $("#examples-SampleService-sampleServiceGetSample-title-default").text("Status: default - " + responseSampleServicedefault_description);
                               } else {
-                                $("#examples-SharedCoreService-sharedCoreServiceGetThumbnail-title-default").text("Status: default - " + responseSharedCoreServicedefault_description.substring(0, responseSharedCoreServicedefault_description_break));
-                                $("#examples-SharedCoreService-sharedCoreServiceGetThumbnail-description-default").html(responseSharedCoreServicedefault_description.substring(responseSharedCoreServicedefault_description_break));
+                                $("#examples-SampleService-sampleServiceGetSample-title-default").text("Status: default - " + responseSampleServicedefault_description.substring(0, responseSampleServicedefault_description_break));
+                                $("#examples-SampleService-sampleServiceGetSample-description-default").html(responseSampleServicedefault_description.substring(responseSampleServicedefault_description_break));
                               }
                             </script>
 
 
-                            <ul id="responses-detail-SharedCoreService-sharedCoreServiceGetThumbnail-default" class="nav nav-tabs nav-tabs-examples" >
+                            <ul id="responses-detail-SampleService-sampleServiceGetSample-default" class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-SharedCoreService-sharedCoreServiceGetThumbnail-default-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-SampleService-sampleServiceGetSample-default-schema">Schema</a>
                                 </li>
 
 
@@ -1716,9 +1291,9 @@ JSON-String に変換されるはず
                             </ul>
 
 
-                            <div class="tab-content" id="responses-SharedCoreService-sharedCoreServiceGetThumbnail-default-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-SharedCoreService-sharedCoreServiceGetThumbnail-default-schema">
-                                  <div id="responses-SharedCoreService-sharedCoreServiceGetThumbnail-schema-default" class="exampleStyle">
+                            <div class="tab-content" id="responses-SampleService-sampleServiceGetSample-default-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-SampleService-sampleServiceGetSample-default-schema">
+                                  <div id="responses-SampleService-sampleServiceGetSample-schema-default" class="exampleStyle">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1747,14 +1322,14 @@ JSON-String に変換されるはず
                                         }
 
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-SharedCoreService-sharedCoreServiceGetThumbnail-default-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-SharedCoreService-sharedCoreServiceGetThumbnail-schema-default');
+                                        $('#responses-SampleService-sampleServiceGetSample-default-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-SampleService-sampleServiceGetSample-schema-default');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-SharedCoreService-sharedCoreServiceGetThumbnail-default-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-SampleService-sampleServiceGetSample-default-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
